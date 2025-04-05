@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Loco por ti</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff0f5;
+      text-align: center;
+      color: #333;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-top: 20px;
+    }
+
+    #timer {
+      font-size: 1.2em;
+      margin: 20px 0;
+    }
+
+    .slider {
+      width: 90%;
+      max-width: 600px;
+      margin: auto;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    .slides {
+      display: flex;
+      width: 300%;
+      animation: slide 9s infinite;
+    }
+
+    .slides img {
+      width: 100%;
+      height: auto;
+    }
+
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      33% { transform: translateX(0); }
+      44% { transform: translateX(-100%); }
+      66% { transform: translateX(-100%); }
+      77% { transform: translateX(-200%); }
+      100% { transform: translateX(-200%); }
+    }
+
+    .mensaje {
+      margin-top: 30px;
+      font-size: 1.1em;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Loco por ti ❤️</h1>
+  <div id="timer">Han pasado <span id="dias">0</span> días, <span id="horas">0</span> horas, <span id="minutos">0</span> minutos y <span id="segundos">0</span> segundos desde que comenzó lo nuestro.</div>
+
+  <div class="slider">
+    <div class="slides">
+      <img src="img/foto1.jpg" alt="Foto 1">
+      <img src="img/foto2.jpg" alt="Foto 2">
+      <img src="img/foto3.jpg" alt="Foto 3">
+    </div>
+  </div>
+
+  <div class="mensaje">
+    <p>
+      No hay un solo día en el que me arrepienta de haberte elegido.  
+      A tu lado encontré una paz que no sabía que existía,  
+      una risa que sana y una mirada que me recuerda  
+      por qué vale la pena todo.  
+      No hay razones para irme, solo motivos para quedarme.  
+      Te amo con todo lo que soy y más.
+    </p>
+  </div>
+
+  <script>
+    const inicio = new Date("2023-10-02T00:00:00");
+    setInterval(() => {
+      const ahora = new Date();
+      const diff = ahora - inicio;
+
+      const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutos = Math.floor((diff / (1000 * 60)) % 60);
+      const segundos = Math.floor((diff / 1000) % 60);
+
+      document.getElementById("dias").textContent = dias;
+      document.getElementById("horas").textContent = horas;
+      document.getElementById("minutos").textContent = minutos;
+      document.getElementById("segundos").textContent = segundos;
+    }, 1000);
+  </script>
+</body>
+</html>
